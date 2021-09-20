@@ -1,0 +1,36 @@
+{
+  "name": "mvc-tech-blog",
+  "version": "1.0.0",
+  "description": "CMS-style blog site",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ratalla816/mvc-tech-blog.git"
+  },
+  "author": "Rob Atalla",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ratalla816/mvc-tech-blog/issues"
+  },
+  "homepage": "https://github.com/ratalla816/mvc-tech-blog#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "env": "^0.0.2",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.3",
+    "express-session": "^1.17.2",
+    "jest": "^27.2.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.0",
+    "node-pre-gyp": "^0.17.0",
+    "node.js": "^0.0.1-security",
+    "nodemon": "^2.0.12",
+    "sequelize": "^6.6.5",
+    "server.js": "^1.0.0"
+  }
+}
