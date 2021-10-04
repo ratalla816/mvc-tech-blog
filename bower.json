@@ -1,0 +1,19 @@
+{
+  "name": "mvc-tech-blog",
+  "description": "CMS-style blog site",
+  "main": "server.js",
+  "authors": [
+    "Rob Atalla"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ratalla816/mvc-tech-blog",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    ".env"
+  ]
+}
