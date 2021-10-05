@@ -20,6 +20,7 @@
   "homepage": "https://github.com/ratalla816/mvc-tech-blog#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.2",
     "dotenv": "^10.0.0",
     "env": "^0.0.2",
     "express": "^4.17.1",
