@@ -82,7 +82,7 @@
   * View the walkthrough video here: <>
   
   ## Screenshot
-  ![Screenshot](github/images/screenshot.png)
+  ![Screenshot](public/assets/images/screenshot.png)
 
   ## Features
   Technologies used include: sequelize, dotenv, mysql, handlebars, jawsDB, insomnia, and express. 

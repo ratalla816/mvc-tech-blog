@@ -177,7 +177,7 @@ footer {
   font-size: 110%;
 }
 
-:root {
+/* :root {
   --primary: #ccdad1;
   --secondary: #9caea9;
   --tertiary: #788585;
@@ -424,7 +424,7 @@ p {
 
 .col-auto {
   flex-grow: 1;
-}
+} */
 
 .col-1 {
   flex: 0 0 calc(100% * 1 / 12 - 2%);

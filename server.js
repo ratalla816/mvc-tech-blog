@@ -1,46 +1,41 @@
-var path = require('path');
+const path = require ('path');
+const express = require ('express');
+const session = require ('express-session');
+const exphbs = require ('express-handlebars');
 
-var express = require('express');
+const app = express ();
+const PORT = process.env.PORT || 3001;
 
-var session = require('express-session');
+const sequelize = require ("./config/connection");
+const SequelizeStore = require ('connect-session-sequelize') (session.Store);
 
-var exphbs = require('express-handlebars');
-
-var app = express();
-var PORT = process.env.PORT || 3001;
-
-var sequelize = require("./config/connection");
-
-var SequelizeStore = require('connect-session-sequelize')(session.Store);
-
-var sess = {
-  secret: 'the duck is waddling',
+const sess = {
+  secret: 'the ducks are waddling',
+//            _
+//        .__(.)< (QUACK)
+//         \___)   
+//  ~~~~~~~~~~~~~~~~~~
   cookie: {},
   resave: false,
   saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize
-  })
+  store: new SequelizeStore ({db: sequelize})
 };
-app.use(session(sess));
+  
+const helpers = require ('./utils/helpers');
+const hbs = exphbs.create ({helpers: helpers});
+  app.engine ('handlebars', hbs.engine);
+  app.set ('view engine', 'handlebars');
 
-var helpers = require('./utils/helpers');
+  app.use (express.json ());
+  app.use (express.urlencoded ({ extended: false }));
+  app.use (express ["static"] (path.join(__dirname, 'public')));
+  app.use (session (sess));
+  app.use (require ('./controllers/'));
 
-var hbs = exphbs.create({
-  helpers: helpers
-});
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
-app.use(express.json());
-app.use(express.urlencoded({
-  extended: false
-}));
-app.use(express["static"](path.join(__dirname, 'public')));
-app.use(require('./controllers/'));
-sequelize.sync({
-  force: false
-}).then(function () {
-  app.listen(PORT, function () {
-    return console.log('Now listening');
-  });
-});
+sequelize.sync ({ force: false })
+  .then (
+    function () 
+  {app.listen (PORT, function ()
+     { return console.log ('and BOOM goes the dynamite')}
+    )}
+  );
