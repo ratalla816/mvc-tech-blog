@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS techemporium_db;
+DROP DATABASE IF EXISTS tech_emporium_db;
 
-CREATE DATABASE techemporium_db;
+CREATE DATABASE tech_emporium_db;
