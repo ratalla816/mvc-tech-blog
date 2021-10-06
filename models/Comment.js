@@ -1,8 +1,5 @@
-const _require = require ('sequelize'),
-    Model = _require.Model,
-    DataTypes = _require.DataTypes;
-
-const sequelize = require ('../config/connection');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 let Comment = class Comment extends Model {};
 

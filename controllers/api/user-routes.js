@@ -1,9 +1,7 @@
 const router = require('express').Router();
+
+const { Comment, User, Post } = require('../../models');
 const withAuth = require('../../utils/auth');
-const _require = require('../../models'),
-    User = _require.User,
-    Post = _require.Post,
-    Comment = _require.Comment;
 
 router.get ('/', function (req, res) {
   User.findAll ({ attributes: { exclude: ['password']}
@@ -11,7 +9,7 @@ router.get ('/', function (req, res) {
   .then(function (dbUserData) {
     return res.json(dbUserData);
   })
-  ["catch"] (function (err) {
+  .catch (function (err) {
     console.log(err);
     res.status(500).json(err);
   });
@@ -20,9 +18,8 @@ router.get ('/', function (req, res) {
 router.get ('/:id', function (req, res) {
   User.findOne ({ attributes: { exclude: ['password']},
     where: { id: req.params.id},
-    include: [{ model: Post, attributes: 
-        ['id', 'title', 'post_text', 'created_at']}, 
-     {model: Comment, attributes: ['id', 'comment_text', 'created_at']}
+    include: [{ model: Post, attributes: ['id', 'title', 'post_text', 'created_at']}, 
+     { model: Comment, attributes: ['id', 'comment_text', 'created_at']}
     ]
   })
   
@@ -32,7 +29,7 @@ router.get ('/:id', function (req, res) {
       return;
     }
   })
-  ["catch"] (function (err) {
+   .catch(function (err) {
     console.log(err);
     res.status(500).json(err);
   });
@@ -51,7 +48,7 @@ router.post('/', function (req, res) {
     res.json(dbUserData);
    });
  })
- ["catch"] (function (err) {
+  .catch(function (err) {
     console.log(err);
     res.status(500).json(err);
   });
@@ -93,7 +90,8 @@ router.post('/logout', function (req, res) {
 });
 
 router.put('/:id', function (req, res) {
-  User.update(req.body, {individualHooks: true, where: {id: req.params.id}
+  User.update(req.body, {
+    individualHooks: true, where: {id: req.params.id}
  }) 
 
   .then(function (dbUserData) {
@@ -103,11 +101,13 @@ router.put('/:id', function (req, res) {
     }
 
     res.json(dbUserData);
-  })["catch"](function (err) {
+  })
+  .catch(function (err) {
     res.status(500).json(err);
   });
 });
-router["delete"]('/:id', function (req, res) {
+
+router.delete('/:id', function (req, res) {
   User.destroy({ where: {id: req.params.id }
   })
   .then(function (dbUserData) {
@@ -117,7 +117,8 @@ router["delete"]('/:id', function (req, res) {
     }
 
     res.json(dbUserData);
-  })["catch"](function (err) {
+  })
+  .catch(function (err) {
     console.log(err);
     res.status(500).json(err);
   });

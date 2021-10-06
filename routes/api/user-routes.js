@@ -11,7 +11,7 @@ router.get('/', function (req, res) {
     return res.json(dbUserData);
   })
   
-  ["catch"](function (err) {
+  .catch(function (err) {
     console.log(err);
     res.status(500).json(err);
   });
@@ -30,7 +30,7 @@ router.get ('/:id', function (req, res) {
   } res.json(dbUserData);
  })
   
-  ["catch"] (function (err) {
+  .catch(function (err) {
     console.log(err);
     res.status(500).json(err);
   });
@@ -46,13 +46,14 @@ router.post ( '/', function (req, res) {
   .then(function (dbUserData) { 
     return  res.json(dbUserData);
   })
-  ["catch"] (function (err) {
+  .catch(function (err) {
     console.log(err);
     res.status(500).json(err);
   });
 });
 
 router.post('/login', function (req, res) {
+
   // expects {email: 'rob.atalla@gmail.com', password: 'password1234'}
   User.findOne({
     where: {email: req.body.email}
@@ -76,6 +77,7 @@ const validPassword = dbUserData.checkPassword (req.body.password);
 });
 
 router.put('/:id', function (req, res) {
+
   // expects {username: 'ratalla816', password: 'password1234', email: 'rob.atalla@gmail.com'}
   User.update(req.body, {
     individualHooks: true,
@@ -92,13 +94,13 @@ router.put('/:id', function (req, res) {
  res.json(dbUserData);
   })
   
-  ["catch"](function (err) {
+  .catch(function (err) {
     console.log(err);
     res.status(500).json(err);
   });
 });
 
-router["delete"] ('/:id', function (req, res) {
+router.delete ('/:id', function (req, res) {
   User.destroy( { where: { id: req.params.id }
   })
   
@@ -111,7 +113,7 @@ router["delete"] ('/:id', function (req, res) {
 
    res.json(dbUserData);
   })
-  ["catch"] (function (err) {
+  .catch(function (err) {
     console.log(err);
     res.status(500).json(err);
   });

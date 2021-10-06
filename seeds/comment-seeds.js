@@ -1,5 +1,5 @@
-const _require = require('../models'),
-    Comment = _require.Comment;
+
+const { Comment } = require('../models');
 
 const commentdata = [
   
