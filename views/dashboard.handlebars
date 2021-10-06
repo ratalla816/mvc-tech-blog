@@ -1,6 +1,41 @@
-<section>
-  <h2>Create New Post</h2>
 
-  
+<section>
+  <h2>Enter a New Post</h2>
+
+  <form class="new-post-form">
+    <div>
+      <label for="post-title">
+        What is the title of the article?
+      </label>
+        <input type="text" id="post-title" name="post-title"/>
+    </div>
+    <div>
+      <label for="post-url">
+        Enter a link to your article
+      </label>
+      <input type="text" id="post-url" name="post-url"/>
+    </div>
+    <button type="submit" class="btn">Submit</button>
+  </form>
+</section>
+
+{{#if posts.length}}
+<section>
+  <h2>Your Posts</h2>
+  <br>
+    <ol>
+      {{#each posts as |post|}}
+      <li>
+        <label for="edit-link">
+          Edit Link
+        </label>
+        {{> post-info post}}
+       <a href="/dashboard/edit/{{post.id}}">click to edit</a>
+     </li>
+     {{/each}}
+   </ol>
+   <br>
+ </section>
+ {{/if}}
 
 <script src="/javascript/add-post.js"></script>
