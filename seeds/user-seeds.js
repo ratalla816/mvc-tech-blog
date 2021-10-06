@@ -47,7 +47,7 @@ const userdata = [
 
 {
   username: 'tpenniell7',
-  email: 'kperigo7@china.com.cn',
+  email: 'kperigo7@china.cn',
   password: 'password123'
 }, 
 
@@ -61,6 +61,12 @@ const userdata = [
   username: 'jmacarthur9',
   email: 'bsteen9@epa.gov',
   password: 'password123'
+},
+
+{
+  username: 'tomtom1',
+  email: 'tom@tom.com',
+  password: 'password1234'
 }
 ];
 

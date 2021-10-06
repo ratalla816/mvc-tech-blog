@@ -7,7 +7,7 @@
     const email = document.querySelector ('#email-signup') .value.trim();
     
   
-    if (username && email && password) {
+    if (username && password && email) {
       const response = await fetch('/api/users', {
         method: 'post',
         body: JSON.stringify ({ username, password, email }),
