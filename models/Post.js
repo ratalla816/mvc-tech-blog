@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 const Post = class Post extends Model {};
 
-Post.init({
+Post.init( {
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -16,9 +16,10 @@ Post.init({
     allowNull: false
   },
 
-  post_text: {
+  post_url: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
+    validate: { isURL: true }
   },
 
   user_id: {

@@ -1,7 +1,9 @@
+
 async function commentFormHandler (event) {
   event.preventDefault();
 
-  const comment_text = document.querySelector ('textarea [name="comment-body"]')
+  const comment_text = document.querySelector ('textarea[name="comment-body"]')
+
   .value.trim();
 
   const post_id = window.location.toString().split ('/')
@@ -15,8 +17,7 @@ async function commentFormHandler (event) {
     });
 
     if (response.ok) { document.location.reload();} 
-    else { alert(response.statusText);}
-  }
-}
+    else {alert(response.statusText);}
+  }}
 
-document.querySelector ('.comment-form').addEventListener ('submit', commentFormHandler);
+document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);

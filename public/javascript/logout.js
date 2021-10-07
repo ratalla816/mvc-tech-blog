@@ -9,4 +9,4 @@ const response = await fetch('/api/users/logout', {
   else { alert(response.statusText);}
   }
 
-document.querySelector ('#logout').addEventListener ('click', logout);
+document.querySelector('#logout').addEventListener('click', logout);
