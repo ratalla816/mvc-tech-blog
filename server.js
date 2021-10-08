@@ -29,10 +29,9 @@ const hbs = exphbs.create ({helpers: helpers});
   app.use (express.json ());
   app.use (express.urlencoded ({ extended: false }));
   app.use (express ["static"] (path.join(__dirname, 'public')));
-  // app.use (session (sess));
-
-  // Automatically logout user if they are idle for 5 minutes -  300 seconds is 5 minutes
-  app.use(session({secret:"Key",cookie:{maxAge:300}}))
+  app.use (session (sess));
+  // Automatically logout user if they are idle for 5 minutes -  300,000 milliseconds is 5 minutes
+  app.use(session({secret:"the ducks are waddling",cookie:{maxAge:300000}}))
   app.use (require ('./controllers/'));
 
 sequelize.sync ({ force: false })
