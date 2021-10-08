@@ -28,17 +28,15 @@
         {{#if loggedIn}}
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           {{!-- <li class="nav-link px-2 text-secondary"><a href="/">Home</a></li> --}}
+          <li class="nav-link px-2 text-white"><a href="/dashboard/new/">New Post</a></li>
           <li class="nav-link px-2 text-white"><a href="/dashboard">Dashboard</a></li>
           <br>
-          <button id="logout" type="button" class="btn btn-outline-light me-2">Logout</button>
+          <li class="nav-link px-2 text-white"><a href="/" id="logout" type="button" class="btn btn-outline-light me-2">Logout</a></li>
           {{else}}
-          <button id="login" type="button" class="btn btn-warning">Login</button>
+          <li class="nav-link px-2 text-white"><a href="/login" id="login" type="button" class="btn btn-warning">Login</a></li>
          </ul>
         
-        {{!-- <div class="text-end"> --}}
-          {{!-- <button type="button" class="btn btn-outline-light me-2"><a href="#" id="logout-button">Logout</button> --}}
-          {{!-- <button type="button" class="btn btn-warning"><a href="/login">Login</button> --}}
-          {{/if}}
+                  {{/if}}
         </div>
       </div>
     </nav>
@@ -52,13 +50,11 @@
     ❤️  Made with love by Rob 
   </footer>
   </div>
-  {{#if loggedIn}}
-  <script src="/javascript/logout.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    {{#if loggedIn}}
+   <script src="/javascript/logout.js"></script>
+   {{/if}}
 </body>
 </html>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" 
-integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-{{!-- <script src="/javascript/login.js"></script> --}}
-
-
-

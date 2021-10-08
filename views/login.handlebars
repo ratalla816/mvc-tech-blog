@@ -1,30 +1,30 @@
-
-<form class="signup-form">
+{{!-- 
+<form id="signup-form" class="signup-form">
   <div>
     <label for="username-signup">username:</label>
-    <input type="text" id="username-signup" />
+    <input type="text" name="username-signup" id="username-signup" />
   </div>
   <div>
     <label for="password-signup">password:</label>
-    <input type="text" id="password-signup"/>
+    <input type="text" name="password-signup" id="password-signup"/>
   </div>
   <div>
     <label for="email-signup">email:</label>
-    <input type="text" id="email-signup" />
+    <input type="text" name="email-signup" id="email-signup" />
   </div>
   <div>
     <button type="submit">signup</button>
   </div>
 </form>
 
-<form class="login-form">
+<form id="signin-form" class="login-form">
   <div>
-    <label for="email-login">email:</label>
-    <input type="text" id="username-signup"/>
+    <label for="email-signin">email:</label>
+    <input type="text" name="email-signin" id="email-signin"/>
    </div>
    <div>
-    <label for="password-login">password:</label>
-    <input type="password" id="password-login" />
+    <label for="password-signin">password:</label>
+    <input type="password" name="password-signin" id="password-signin" />
   </div>
   <div>
     <button type="submit">login</button>
@@ -32,5 +32,41 @@
 </form>
 
 
-{{!-- <script src="/javascript/logout.js"></script> --}}
-<script src="/javascript/login.js"></script>
+<script src="/javascript/logout.js"></script>
+<script src="/javascript/login.js"></script> --}}
+
+<form id="signup-form" class="">
+    <div id="signup" role="tabpanel">
+        <div class="">
+            <h2>Create new account</h2>
+        </div>
+        <div>
+            <label for="username-signup">Username</label>
+            <input type="text" id="username-signup" placeholder="Username" autocomplete="off" required autofocus>
+        </div>
+        <div>
+            <label for="email-signup">Email</label>
+            <input type="email" id="email-signup" placeholder="terry@example.com" autocomplete="off" required
+                autofocus>
+        </div>
+        <div>
+            <label for="password-signup">Password</label>
+            <input type="password" id="password-signup" placeholder="Password" autocomplete="off" required>
+        </div>
+        <button type="submit" id="signup-btn" class="">Sign up</button>
+    </div>
+</form>
+
+<form id="signin-form" >
+    <h1 class="">Please sign in</h1>
+    <label for="email-signin" class="">email</label>
+    <input type="text" id="email-signin" class="form-control" placeholder="Email address" required autofocus>
+    <label for="password-signin" class="">Password</label>
+    <input type="password" id="password-signin" class="" placeholder="Password" required>
+    </div>
+    <button type="submit" id="login-btn" class="">Login</button>
+</form>
+
+
+<script src="/javascript/signin.js"></script>
+<script src="/javascript/signup.js"></script>

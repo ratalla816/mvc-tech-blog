@@ -1,24 +1,11 @@
 
-<section>
-  <h2>Add a New Post</h2>
 
-  <form class="new-post-form">
-    <div>
-      <label for="post-title">
-        What is the title of the article?
-      </label>
-        <input type="text" id="post-title" name="post-title"/>
-    </div>
-    <div>
-      <label for="post-url">
-        Enter a link to your article
-      </label>
-      <input type="text" id="post-url" name="post-url"/>
-    </div>
-    <button type="submit" class="btn">Submit</button>
-  </form>
-</section>
+<div class="">
+    <h2 class="">Dashboard: your posts</h2>
+    <hr>
+    <a href="/dashboard/new/"><button id="new-post-form" class="btn">Create post</button></a>
 
+</div>
 {{#if posts.length}}
 <section>
   <h2>Here are your posts...</h2>
@@ -37,5 +24,3 @@
    <br>
  </section>
  {{/if}}
-
-<script src="/javascript/add-post.js"></script>
