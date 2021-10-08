@@ -3,63 +3,46 @@ const sequelize = require('../config/connection');
 const { User, Post } = require('../models');
 
 const userdata = [
+   
   {
-  username: 'derimarg',
-  email: 'derimarg@email.com',
-  password: 'password'
-  },
- 
-  {
-  username: 'jwilloughway1',
-  email: 'rmebes1@sogou.com',
+  username: 'timmah',
+  email: 'timmy@southpark.com',
   password: 'password123'
   }, 
  
   {
-  username: 'iboddam2',
-  email: 'cstoneman2@last.fm',
-  password: 'password123'
-  }, 
- 
-  {
-  username: 'dstanmer3',
-  email: 'ihellier3@goo.ne.jp',
-  password: 'password123'
-  }, 
- 
-  {
-  username: 'djiri4',
-  email: 'gmidgley4@weather.com',
+  username: 'katester',
+  email: 'katie1@fakeemail.com',
   password: 'password123'
   },
 
  {
-  username: 'msprague5',
-  email: 'larnout5@imdb.com',
+  username: 'gregorio',
+  email: 'greg_hughes@fakeemail.com',
   password: 'password123'
  },
 
  {
-  username: 'mpergens6',
-  email: 'hnapleton6@feedburner.com',
+  username: 'ratalla816',
+  email: 'rob.atalla@gmail.com',
   password: 'password123'
 }, 
 
 {
-  username: 'tpenniell7',
-  email: 'kperigo7@china.cn',
+  username: 'lamarvsted',
+  email: 'lamar@fakeemail.com',
   password: 'password123'
 }, 
 
 {
-  username: 'msabbins8',
-  email: 'lmongain8@google.ru',
+  username: 'chipsorsomthin',
+  email: 'chip.chipperson@fakeemail.com',
   password: 'password123'
 }, 
 
 {
-  username: 'jmacarthur9',
-  email: 'bsteen9@epa.gov',
+  username: 'tscheckler1',
+  email: 'ted_scheckler@fakeemail.com',
   password: 'password123'
 },
 

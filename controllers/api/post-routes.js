@@ -74,7 +74,7 @@ router.get('/:id', (req, res) => {
   })
     .then(dbPostData => {
       if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+        res.status(404).json({ message: 'No posts found' });
         return;
       }
       res.json(dbPostData);
@@ -113,7 +113,7 @@ router.put('/:id', withAuth, (req, res) => {
   )
     .then(dbPostData => {
       if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+        res.status(404).json({ message: 'No posts found' });
         return;
       }
       res.json(dbPostData);
@@ -133,7 +133,7 @@ router.delete('/:id', withAuth, (req, res) => {
   })
     .then(dbPostData => {
       if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+        res.status(404).json({ message: 'No posts found' });
         return;
       }
       res.json(dbPostData);
