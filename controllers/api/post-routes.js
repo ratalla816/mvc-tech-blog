@@ -6,23 +6,24 @@ router.get('/', withAuth, (req, res) => {
   console.log(req.session);
   Post.findAll({
     attributes: 
-    [
-      'id',
-      'title',
-      'created_at',
-      'post_content'
-    ],
+    ['id',
+     'title',
+     'created_at',
+     'post_content'],
+
     order: ['created_at'],
     include: 
     [
       {
-        model: Comment,
-        attributes: [
-          'id',
-          'comment_text',
-          'post_id',
-          'user_id',
-          'created_at'],
+        model: 
+        Comment,
+        attributes: 
+        ['id',
+         'comment_text',
+         'post_id',
+         'user_id',
+         'created_at'],
+
         include: { model: User, attributes: ['username'] }
       },
 
@@ -47,35 +48,27 @@ router.get('/:id', (req, res) => {
   Post.findOne({
     where: { id: req.params.id },
     attributes:
-    [
-      'id',
-      'title',
-      'created_at',
-      'post_content'
-    ],
+    ['id',
+     'title',
+     'created_at',
+     'post_content'],
 
     include:
-   [
-      {
-       model: User,
-       attributes: ['username']
-      },
+    [
+      { model: User, attributes: ['username']},
 
-      {
-        model: Comment,
+       {
+        model: 
+        Comment,
         attributes:
-        [
-          'id',
-          'comment_text',
-          'post_id',
-          'user_id',
-          'created_at'
-        ],
+        ['id',
+         'comment_text',
+         'post_id',
+         'user_id',
+         'created_at'],
 
-        include: {
-          model: User,
-          attributes: ['username']
-        }
+        include:
+        { model: User, attributes: ['username']}
       }
     ]
   }

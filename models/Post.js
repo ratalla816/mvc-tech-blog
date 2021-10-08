@@ -5,28 +5,33 @@ class Post extends Model { }
 
 Post.init(
   {
-    id: { 
+    id:
+    { 
       type: DataTypes.INTEGER, 
       allowNull: false, 
       primaryKey: true, 
       autoIncrement: true 
     },
-    title: {
+
+    title:
+    {
       type: DataTypes.STRING,
       allowNull: false
     },
-    post_content: {
+
+    post_content: 
+    {
       type: DataTypes.TEXT,
       allowNull: true
     },
-    user_id: {
+
+    user_id:
+    {
       type: DataTypes.INTEGER, 
-      references: {
-        model: 'user',
-        key: 'id'
-      }
+      references: { model: 'user', key: 'id'}
     }
   },
+  
   {
     sequelize,
     freezeTableName: true,

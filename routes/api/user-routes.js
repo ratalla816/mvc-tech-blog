@@ -62,17 +62,17 @@ router.get('/', function (req, res) {
   
     .then(function (dbUserData) {
       if (!dbUserData) {
-        res.status(400).json( { message: 'No user found'} );
+        res.status(400).json( { message: 'user not found'} );
         return;
       }
   
   const validPassword = dbUserData.checkPassword (req.body.password); 
   if (!validPassword) {
-    res.status(400).json({ message: 'Invalid password' });
+    res.status(400).json({ message: 'invalid password' });
     return;
   }
 
-  res.json({ user: dbUserData, message: 'User is logged in' });
+  res.json({ user: dbUserData, message: 'user logged in' });
 });
 });
 
@@ -85,7 +85,7 @@ router.put('/:id', function (req, res) {
 
   .then(function (dbUserData) {
     if (!dbUserData[0]) {
-      res.status(404).json ({ message: 'User not found'});
+      res.status(404).json ({ message: 'user not found'});
 
       return;
     }
@@ -106,7 +106,7 @@ router.put('/:id', function (req, res) {
     
       .then(function (dbUserData) {
         if (!dbUserData) {
-          res.status(404).json( { message: 'User not found' });
+          res.status(404).json( { message: 'user not found' });
     
         return;
       }

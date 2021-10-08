@@ -11,6 +11,7 @@ Comment.init(
       allowNull: false,
       autoIncrement: true,
     },
+
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -19,6 +20,7 @@ Comment.init(
         key: 'id'
       }
     },
+
     post_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -27,14 +29,14 @@ Comment.init(
         key: 'id'
       }
     },
+
     comment_text: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [1]
-    }
+      validate: {len: [1]}
     }
   },
+  
   {
     sequelize,
     freezeTableName: true,
