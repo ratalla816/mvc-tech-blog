@@ -5,14 +5,16 @@ const withAuth = require('../../utils/auth');
 router.get('/', withAuth, (req, res) => {
   console.log(req.session);
   Post.findAll({
-    attributes: [
+    attributes: 
+    [
       'id',
       'title',
       'created_at',
       'post_content'
     ],
     order: ['created_at'],
-    include: [
+    include: 
+    [
       {
         model: Comment,
         attributes: [
@@ -21,68 +23,77 @@ router.get('/', withAuth, (req, res) => {
           'post_id',
           'user_id',
           'created_at'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
+        include: { model: User, attributes: ['username'] }
       },
+
       {
         model: User,
         attributes: ['username']
       }
     ]
+
   })
-    .then(dbPostData =>
-      res.json(dbPostData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+
+  .then(dbPostData =>
+    res.json(dbPostData))
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+
 });
 
 router.get('/:id', (req, res) => {
   Post.findOne({
-    where: {
-      id: req.params.id
-    },
-    attributes: [
+    where: { id: req.params.id },
+    attributes:
+    [
       'id',
       'title',
       'created_at',
       'post_content'
     ],
-    include: [
+
+    include:
+   [
       {
-        model: User,
-        attributes: ['username']
+       model: User,
+       attributes: ['username']
       },
+
       {
         model: Comment,
-        attributes: [
+        attributes:
+        [
           'id',
           'comment_text',
           'post_id',
           'user_id',
           'created_at'
         ],
+
         include: {
           model: User,
           attributes: ['username']
         }
       }
     ]
+  }
+)
+  
+ .then(dbPostData => {
+    if (!dbPostData) {
+      res.status(404).json({ message: 'No posts found' });
+      return;
+    }
+    res.json(dbPostData);
   })
-    .then(dbPostData => {
-      if (!dbPostData) {
-        res.status(404).json({ message: 'No posts found' });
-        return;
-      }
-      res.json(dbPostData);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+ 
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
     });
+
 })
 
 router.post('/', withAuth, (req, res) => {
@@ -100,22 +111,17 @@ router.post('/', withAuth, (req, res) => {
 
 
 router.put('/:id', withAuth, (req, res) => {
-  Post.update(
-    {
+  Post.update({
       title: req.body.title,
       post_content: req.body.post_content
-    },
-    {
-      where: {
-        id: req.params.id
-      }
+       },
+   { where: { id: req.params.id }})
+    
+  .then(dbPostData => {
+    if (!dbPostData) {
+     res.status(404).json({ message: 'No posts found' });
+      return;
     }
-  )
-    .then(dbPostData => {
-      if (!dbPostData) {
-        res.status(404).json({ message: 'No posts found' });
-        return;
-      }
       res.json(dbPostData);
     })
     .catch(err => {
@@ -127,9 +133,7 @@ router.put('/:id', withAuth, (req, res) => {
 router.delete('/:id', withAuth, (req, res) => {
   console.log('id', req.params.id);
   Post.destroy({
-    where: {
-      id: req.params.id
-    }
+    where: { id: req.params.id }
   })
     .then(dbPostData => {
       if (!dbPostData) {

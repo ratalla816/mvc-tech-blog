@@ -3,13 +3,16 @@ const { Post, User, Comment } = require('../models');
 
 router.get('/', (req, res) => {
   Post.findAll({
-    attributes: [
+    attributes:
+     [
       'id',
       'title',
       'created_at',
       'post_content'
     ],
-    include: [
+
+    include:
+     [
       {
         model: Comment,
         attributes: [
@@ -30,7 +33,8 @@ router.get('/', (req, res) => {
       }
     ]
   })
-    .then(dbPostData => {
+    
+  .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
 
       res.render('homepage', {
@@ -46,36 +50,41 @@ router.get('/', (req, res) => {
 
 router.get('/post/:id', (req, res) => {
   Post.findOne({
-    where: {
-      id: req.params.id
-    },
-    attributes: [
+    where: { id: req.params.id },
+    attributes: 
+    [
       'id',
       'title',
       'created_at',
       'post_content'
     ],
-    include: [
+
+    include:
+    [
       {
         model: Comment,
-        attributes: [
+        attributes:
+        [
           'id', 
           'comment_text',
           'post_id',
           'user_id',
           'created_at'
         ],
+
         include: {
           model: User,
           attributes: ['username']
         }
       },
+
       {
         model: User,
         attributes: ['username']
       }
     ]
-  })
+ })
+
     .then(dbPostData => {
       if (!dbPostData) {
         res.status(404).json({ message: 'No post found with this id' });
@@ -88,7 +97,9 @@ router.get('/post/:id', (req, res) => {
         post,
         loggedIn: req.session.loggedIn
       });
-    })
+
+  })
+  
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
