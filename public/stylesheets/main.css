@@ -10,7 +10,7 @@ body, html {
 
 a {
   text-decoration: none;
-  color: rgb(34, 92, 163);
+  color: rgb(51, 92, 163);
   font-weight: bold;
   transition: color .1s;
 }
@@ -19,7 +19,8 @@ a:hover
 { color: rgb(52, 134, 235)}
 
 button {
-  background-color: rgb(34, 92, 163);
+  /* background-color: rgb(34, 92, 163); */
+  background-color: rgb(102, 0, 102);
   border: 0;
   padding: 1%;
   color: white;
@@ -30,7 +31,7 @@ button {
 }
 
 button:hover 
-{ background-color: rgb(52, 134, 235)}
+{ background-color: rgb(204, 0, 204)}
 
 .post-list {
   margin: 0;
@@ -156,7 +157,7 @@ footer {
 }
 
 .form-control {
-  width: 48%;
+  width: 50%;
 }
 
 .form-label,
