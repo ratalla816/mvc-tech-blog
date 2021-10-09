@@ -53,6 +53,7 @@
   ## Table of Contents
   - [Description](#description)
   - [Documentation](#documentation)
+  - [Deployment](#deployment)
   - [Walkthrough](#walkthrough)
   - [Screenshot](#screenshot)
   - [Features](#features)
@@ -77,9 +78,13 @@
   handlebars <https://handlebarsjs.com/guide/>
   
 
+  
+  ## Deployment
+  
+  Deployed Application:  <https://robs-tech-talk-emporium.herokuapp.com/>
   ## Walkthrough
 
-  * View the walkthrough video here: <>
+  * View the walkthrough video here: <https://watch.screencastify.com/v/9mrny3QkdpKYAn1TwBss>
   
   ## Screenshot
   ![Screenshot](public/assets/images/screenshot.png)
@@ -87,13 +92,18 @@
   ## Features
   Technologies used include: sequelize, dotenv, mysql, handlebars, jawsDB, insomnia, and express. 
   Login credentials are hidden from the public by storing them in an .env file. 
-  Users have the ability to (TBD)
+  Users are automatically logged out after five minutes of inactivity.
+  Users have the ability to sign up for an account, then they are able to sign in and sign out. 
+  Users can create blog posts which they can later edit and or delete. 
+  Users are able to leave comments on their own posts and other user's posts. 
   
   # Acknowledgements
   
   * Rob Atalla
   
   * Nathan Szurek (Tutor)
+
+  * Derimar Gray (Classmate)
   
   * KU Coding Bootcamp, Module 14 Challenge Assignment © 2021 Trilogy Education Services, LLC, a 2U, Inc. brand Confidential and Proprietary.
   All Rights Reserved.
