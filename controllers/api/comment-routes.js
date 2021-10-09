@@ -35,7 +35,7 @@ router.delete ('/:id', function (req, res) {
   Comment.destroy({ where: {id: req.params.id }})
   .then(function (dbCommentData) {
     if (!dbCommentData) {
-      res.status(404).json ({ message: 'Sorry, no comments found'});
+      res.status(404).json ({ message: 'no comments found'});
       return;
     }
       res.json(dbCommentData);
