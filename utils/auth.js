@@ -1,11 +1,1 @@
-
-const withAuth = function withAuth (req, res, next) {
-    if (!req.session.user_id) {
-      res.redirect('/login');
-    } else { 
-     next();
-    }
-  };
-  
-  module.exports = withAuth;
-
+const withAuth=function(t,i,e){t.session.user_id?e():i.redirect("/login")};module.exports=withAuth;
